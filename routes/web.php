@@ -7,11 +7,22 @@ Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
 
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+Route::get('/auth', function () {
+    return Inertia::render('auth/index');
+})->name('auth');
+
+Route::get('/dashboard', function () {
+    return Inertia::render('dashboard');
+})->name('dashboard');
+
+Route::get('/test', function () {
+    return Inertia::render('test');
+})->name('test');
+
+Route::get('/simple', function () {
+    return 'Hello World - Simple Laravel Route';
 });
 
-require __DIR__.'/settings.php';
-require __DIR__.'/auth.php';
+Route::get('/supabase-test', function () {
+    return Inertia::render('supabase-test');
+})->name('supabase-test');
